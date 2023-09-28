@@ -3,26 +3,26 @@ const getCatatan = () => {
     {
       id: 12321312,
       judul: "Catatan 1",
-      isi: "asfsafsdafasfsadfsdafsadfasdf",
+      isi: "Hello, world",
       archived: false,
       createdAt: "1122",
-      updatedAt: "2211"
+      updatedAt : ""
     },
     {
       id: 3131231212,
       judul: "Catatan 2",
-      isi: "asfsadfsdfasfsadfasdfasfasd",
+      isi: "Hello, Mom",
       archived: true,
       createdAt: "1122",
-      updatedAt: "2211"
+      updatedAt : ""
     },
     {
       id: 131231232,
       judul: "Catatan 3",
-      isi: "asdfasdfsadfsdafsafsdafasdfsda",
+      isi: "Hello!!!",
       archived: false,
       createdAt: "1122",
-      updatedAt: "2211"
+      updatedAt : ""
     },
   ]
 }

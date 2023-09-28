@@ -121,7 +121,9 @@ body {
 }
 
 .item-side {
-  text-align: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .createdAt {
@@ -129,6 +131,7 @@ body {
   font-size: .75rem;
   color: rgb(233, 199, 155);
   cursor: default;
+  text-align: end;
 }
 
 .item-title {
@@ -143,6 +146,7 @@ body {
 }
 
 .delete-button {
+  width: fit-content;
   cursor: pointer;
   transition-duration: 100ms;
 }
@@ -164,8 +168,6 @@ body {
   width: 70%;
   max-width: 70%;
   float: right; 
-
-  background-color: aquamarine;
 }
 
 .main-header {

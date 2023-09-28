@@ -2,12 +2,12 @@ import React from "react";
 import SidebarItem from "./sidebarItem";
 
 
-function SidebarList({dataCatatan, hapusCatatan}) {
+function SidebarList({dataCatatan, hapusCatatan, handleClickCatatan}) {
 
   return (
     <div className="sidebar-list">
       {
-        dataCatatan.map(data => <SidebarItem key={data.id} {...data} hapusCatatan={hapusCatatan}/>)
+        dataCatatan.map(data => <SidebarItem key={data.id} {...data} hapusCatatan={hapusCatatan} handleClickCatatan={handleClickCatatan}/>)
       }
       {
         dataCatatan.length == 0? 
