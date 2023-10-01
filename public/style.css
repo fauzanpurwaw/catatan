@@ -231,10 +231,6 @@ textarea {
   min-height: 89%;
 }
 
-.catatan-input {
-  background-color: (rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
-}
-
 
 
 @media screen and (max-width: 680px ) {
