@@ -15,12 +15,11 @@ function CatatanApp() {
   }, [dataCatatan])
 
   const filterData = (e) => {
-    setResult(dataCatatan.filter((data) => data.judul.toLowerCase().includes(e.target.value.toLowerCase())));
+    setResult(dataCatatan.filter((data) => data.title.toLowerCase().includes(e.target.value.toLowerCase())));
   }
   const hapusCatatan = (id) => {
+    setDisplayedId(null);
     setDataCatatan(dataCatatan.filter((data) => data.id !== id));
-    setDisplayedId(0);
-    console.log(displayedId);
     // alert("Data telah dihapus!");
   }
   const tambahCatatan = () => {
@@ -28,8 +27,8 @@ function CatatanApp() {
       ...dataCatatan,
       {
         id: Date.now(),
-        judul: "Tanpa Judul",
-        isi: "Ketik Catatan mu disini..",
+        title: "Tanpa judul",
+        body: "Ketik Catatan mu disini..",
         archived: false,
         createdAt: new Date().toISOString(),
         updatedAt: "2211"
@@ -38,25 +37,26 @@ function CatatanApp() {
     alert("Data Baru telah ditambahkan!");
   }
   const handleClickCatatan = (id) => {
-    setDisplayedId(id);
+      // put your code here
+      setDisplayedId(id);
   }
-  const handleSimpan = (id, judul, isi) => {
+  const handleSimpan = (id, title, body) => {
     let tmpDataCatatan = dataCatatan;
     for (let i=0; i < tmpDataCatatan.length; i++) {
       if (tmpDataCatatan[i].id == id) {
-        tmpDataCatatan[i].judul = judul;
-        tmpDataCatatan[i].isi   = isi;
+        tmpDataCatatan[i].title = title;
+        tmpDataCatatan[i].body   = body;
         tmpDataCatatan[i].updatedAt = new Date().toISOString();
       }
     }
     setDataCatatan(tmpDataCatatan);
-    handleClickCatatan(id);
+    handleClickCatatan(null);
   }
 
   return (
-    <div>
+    <div className="container">
       <Sidebar handleClickCatatan={handleClickCatatan} dataCatatan={result} hapusCatatan={hapusCatatan} filterData={filterData} tambahCatatan={tambahCatatan} />
-      <MainContent id={displayedId} dataCatatan={dataCatatan} handleSimpan={handleSimpan}/>
+      <MainContent id={displayedId} dataCatatan={result} handleSimpan={handleSimpan}/>
     </div>
   )
 }

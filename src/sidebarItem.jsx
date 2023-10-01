@@ -1,6 +1,6 @@
 import React from "react";
 
-function SidebarItem({ judul, createdAt, updatedAt, id, hapusCatatan, handleClickCatatan }) {
+function SidebarItem({ title, createdAt, updatedAt, id, hapusCatatan, handleClickCatatan }) {
 
   const formatDate = (createdAt) => {
     const date = new Date(createdAt);
@@ -11,7 +11,7 @@ function SidebarItem({ judul, createdAt, updatedAt, id, hapusCatatan, handleClic
   return (
     <div className="sidebar-item" onClick={() => handleClickCatatan(id)}>
       <div className="item-title">
-        {judul}
+        {title}
       </div>
       <div className="item-side">
           <div className="delete-button" onClick={() => hapusCatatan(id)}>

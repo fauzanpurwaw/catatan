@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: antiquewhite;
+  background-color: rgb(2, 54, 54);
 }
 
 .sidebar {
@@ -229,4 +229,28 @@ textarea {
   width: 96%;
   height: 89%;
   min-height: 89%;
+}
+
+.catatan-input {
+  background-color: (rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));
+}
+
+
+
+@media screen and (max-width: 680px ) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: 50vh;
+    max-height: 50vh;
+  }
+
+  .main-container {
+    height: 40vh;
+    width: 100%;
+    max-width: none;
+    float: none;
+    max-height: none;
+    margin-top: 60px;
+  }
 }

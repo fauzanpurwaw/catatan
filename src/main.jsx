@@ -3,25 +3,29 @@ import React, { useEffect, useState } from "react";
 function MainContent({ id, dataCatatan, handleSimpan }) {
 
   const [displayedData, setDisplayedData] = useState([]);
-  const [judul, setJudul] = useState("");
-  const [isi, setIsi] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
-  
-  const handleChangedJudul = (e) => {
-    setJudul(e.target.value);
+
+  const handleChangedtitle = (e) => {
+    setTitle(e.target.value);
   };
-  const handleChangedIsi = (e) =>  {
-    setIsi(e.target.value);
+  const handleChangedbody = (e) => {
+    setBody(e.target.value);
   };
-  useEffect(()=> {
+  useEffect(() => {
     setDisplayedData(dataCatatan.filter((data) => data.id == id));
   }, [id]);
-  useEffect(()=> {
+  useEffect(() => {
     if (displayedData.length > 0) {
-      setIsi(displayedData[0].isi)
-      setJudul(displayedData[0].judul);
+      setBody(displayedData[0].body)
+      setTitle(displayedData[0].title);
     }
-  },[displayedData])
+  }, [displayedData])
+  useEffect(() => {
+    setBody('')
+    setTitle('');
+  }, [dataCatatan])
 
   return (
     <>
@@ -31,13 +35,13 @@ function MainContent({ id, dataCatatan, handleSimpan }) {
             <>
               <div className="main-header">
                 <div className="main-header-content">
-                  <input className="judul-input" type="text" placeholder="Judul..." value={judul} onChange={handleChangedJudul}/>
-                  <span className="simpan-button" onClick={() => handleSimpan(id, judul, isi)}>SIMPAN</span>
+                  <input className="judul-input" type="text" placeholder="judul..." value={title} onChange={handleChangedtitle} />
+                  <span className="simpan-button" onClick={() => handleSimpan(id, title, body)}>SIMPAN</span>
                 </div>
               </div>
               <div className="main-body">
                 <div className="main-content">
-                  <textarea name="catatan-input" id="catatan-input" onChange={handleChangedIsi} value={isi} autoFocus></textarea>
+                  <textarea name="catatan-input" id="catatan-input" className="catatan-input" onChange={handleChangedbody} value={body} autoFocus></textarea>
                 </div>
               </div>
             </>
@@ -45,13 +49,13 @@ function MainContent({ id, dataCatatan, handleSimpan }) {
             <>
               <div className="main-header">
                 <div className="main-header-content">
-                  <input className="judul-input" type="text" placeholder="Judul..." />
+                  <input className="judul-input" type="text" placeholder="judul..." disabled/>
                   <span className="simpan-button">SIMPAN</span>
                 </div>
               </div>
               <div className="main-body">
                 <div className="main-content">
-                  <textarea name="catatan-input" id="catatan-input" autoFocus></textarea>
+                  <textarea name="catatan-input" id="catatan-input"></textarea>
                 </div>
               </div>
             </>
