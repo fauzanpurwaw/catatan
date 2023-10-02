@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import SidebarList from "./sidebarList";
+import AddCatatan from "./addCatatan";
 
-function Sidebar ({dataCatatan, hapusCatatan, filterData, tambahCatatan, handleClickCatatan}) {
+function Sidebar ({dataCatatan, hapusCatatan, filterData, tambahCatatan, handleClickCatatan, isArchiveShow}) {
 
   return (
     <div className="sidebar">
@@ -16,9 +17,10 @@ function Sidebar ({dataCatatan, hapusCatatan, filterData, tambahCatatan, handleC
           <div className="sidebar-filter">
             <input className="filter-input" type="text" name="" id="" placeholder="Search Here..." onChange={filterData}/>
           </div>
-          <SidebarList dataCatatan={dataCatatan} hapusCatatan={hapusCatatan} handleClickCatatan={handleClickCatatan}/>
+          <SidebarList dataCatatan={dataCatatan} hapusCatatan={hapusCatatan} handleClickCatatan={handleClickCatatan} isArchiveShow={isArchiveShow}/>
         </div>
       </div>
+          <AddCatatan tambahCatatan={tambahCatatan}/>
     </div>
   )
 }

@@ -31,34 +31,19 @@ function MainContent({ id, dataCatatan, handleSimpan }) {
     <>
       <div className="main-container">
         {
-          id !== 0 && displayedData.length > 0 ?
-            <>
-              <div className="main-header">
-                <div className="main-header-content">
-                  <input className="judul-input" type="text" placeholder="judul..." value={title} onChange={handleChangedtitle} />
-                  <span className="simpan-button" onClick={() => handleSimpan(id, title, body)}>SIMPAN</span>
-                </div>
+          <>
+            <div className="main-header">
+              <div className="main-header-content">
+                <input className="judul-input" type="text" placeholder="judul..." value={title} onChange={handleChangedtitle} />
+                <span className="simpan-button" onClick={() => handleSimpan(id, title, body)}>Simpan</span>
               </div>
-              <div className="main-body">
-                <div className="main-content">
-                  <textarea name="catatan-input" id="catatan-input" className="catatan-input" onChange={handleChangedbody} value={body} autoFocus></textarea>
-                </div>
+            </div>
+            <div className="main-body">
+              <div className="main-content">
+                <textarea name="catatan-input" id="catatan-input" className="catatan-input" onChange={handleChangedbody} value={body}></textarea>
               </div>
-            </>
-            :
-            <>
-              <div className="main-header">
-                <div className="main-header-content">
-                  <input className="judul-input" type="text" placeholder="judul..." disabled/>
-                  <span className="simpan-button">SIMPAN</span>
-                </div>
-              </div>
-              <div className="main-body">
-                <div className="main-content">
-                  <textarea name="catatan-input" id="catatan-input"></textarea>
-                </div>
-              </div>
-            </>
+            </div>
+          </>
         }
       </div>
     </>
